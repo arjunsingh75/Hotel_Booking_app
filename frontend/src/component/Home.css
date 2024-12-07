@@ -1,0 +1,30 @@
+
+.HotelsPage{
+    display: flex;
+    flex-wrap:wrap ;
+}
+.Hotel_card{
+   width: 290px;
+   margin: 20px 10px;
+   border: 1px solid gray;
+   border-radius: 5px;
+   box-shadow:0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.Hotel_card img{
+    height:250px; 
+     width: 100%;
+     border-radius: 5px;
+     
+}
+.hotel_description{
+    padding: 10px;
+}
+.hotel_description button{
+    border: none;
+    background-color: rgba(0, 0,0,0.2);
+    /* color: azure; */
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 500;
+}

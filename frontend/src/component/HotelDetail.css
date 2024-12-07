@@ -1,0 +1,41 @@
+.hotelDetail{
+    display: flex;
+    gap: 20px;
+    border: 2px solid rgb(206, 89, 89);
+    border-radius: 1rem;
+    padding: 1rem;
+
+}
+.hotel_img{
+  font-size: 18px;
+}
+.hotel_img img{
+  border-radius: 10px;
+  height: 400px;
+  width: 600px;
+  box-shadow:5px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hotel_rooms{
+    width:100%;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+  
+}
+.hotel_rooms .description{
+  box-shadow:2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+}
+.description_element{
+  font-weight: 500;
+  margin-right: 5px;
+}
+.description button{
+  border: none;
+  background-color: rgba(0, 0,0,0.2);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
