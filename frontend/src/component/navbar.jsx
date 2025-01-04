@@ -13,7 +13,7 @@ const Navbar = () => {
     
   // Handle logout
   const handleLogout = () => {
-    localStorage.removeItem('authToken','user'); 
+    localStorage.clear(); 
     setIsLoggedIn(false);  
   };
   const styling={
@@ -59,7 +59,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item" style={styling}>
             <Link className="nav-link" to="/User">
-              User
+              User <i style={{fontSize:'22px'}} class="fa fa-user-circle" aria-hidden="true"></i>
             </Link>
           </li>
           </>

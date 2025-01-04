@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 const BookHotel = () => {
     const location = useLocation();
     const Navigate=useNavigate()
@@ -51,7 +51,7 @@ const BookHotel = () => {
     e.preventDefault();
     try{
        const token = localStorage.getItem('authToken');
-       const res=await axios.post("http://localhost:3000/api/hotelbooking", bookhotel,{
+       const res=await axios.post(`${import.meta.env.VITE_APP_API_URL}/hotelbooking`, bookhotel,{
         headers: {
           'Content-Type': 'application/json',
           Authorization: `${token}`,

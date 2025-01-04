@@ -3,9 +3,11 @@
 // .then(()=>console.log("database connected"))
 // .catch((e)=>console.log("database not connected"))
 
+require('dotenv').config();
 const mongoose=require('mongoose');
-mongoose.connect('mongodb+srv://arjun:arjunpassword@cluster0.11qsq.mongodb.net/')
+mongoose.connect(process.env.DATABASE_URL)
 .then(()=>console.log("database connected"))
-.catch((e)=>console.log("database not connected"))
+.catch((e)=>console.log("database not connected",e))
+
 
 

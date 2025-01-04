@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 const User = () => {
   const [bookings, setBookings] = useState([]);
-  useEffect(() => {
-    const fetchBookings = async () => {
+   useEffect(() => {
+     const fetchBookings = async () => {
       try{
       const token = localStorage.getItem('authToken');
-      let response= await axios.get('http://localhost:3000/api/hotelbooking',{
+      let response= await axios.get(`${import.meta.env.VITE_APP_API_URL}/hotelbooking`,{
         "Content-Type": "application/json",
         headers: { Authorization: `${token}` },
       });
@@ -14,16 +14,16 @@ const User = () => {
     } 
     catch(e){
       console.error(e);
-    }
+     }
     };
     fetchBookings();
   }, [bookings]);
 
   const deleteBooking = async (id) => {
-       axios.delete(`http://localhost:3000/api/hotelbooking/${id}`);
+       axios.delete(`${import.meta.env.VITE_APP_API_URL}/hotelbooking/${id}`);
   };  
    return (
-    <div className="bookingpage container mt-5">
+    <div className="bookingpage container mt-5" >
       <h2 className="text-center mb-4">My Bookings</h2>
       <div className="row">
         {bookings.map((booking) => (

@@ -9,6 +9,11 @@ import User from './component/User'
 import HotelDetails from './component/HotelDetails'
 import BookHotel from './component/BookHotel'
 import ProtectedRoute from './component/Protectroute'
+import './App.css';
+import Footer from './component/Footer'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 const App = () => {
   return (
     <BrowserRouter>

@@ -15,7 +15,7 @@ const LoginPage = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/Register/login', formData);
+      const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/Register/login`, formData);
       const { token, user } = res.data;
       localStorage.setItem('authToken', token); 
       localStorage.setItem('user', JSON.stringify(user)); 

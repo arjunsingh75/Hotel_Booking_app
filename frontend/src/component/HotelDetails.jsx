@@ -1,4 +1,4 @@
-import "./HotelDetail.css";
+
 import React from "react";
 import { useLocation ,useNavigate} from "react-router-dom";
 // import BookHotel from "./BookHotel";
@@ -40,7 +40,7 @@ const HotelDetails = () => {
            <p><span className="description_element">Price:</span>{room.price} (one night)</p>
            <p><span className="description_element">Availability:</span>{room.availability}</p>
            <p><span className="description_element">NumOfRoom:</span>{room.numofroom}</p>
-           <button onClick={()=>handleclick(room)}>Book Now</button>
+           <button onClick={()=>handleclick(room)} className="btn_common">Book Now</button>
         </div>
         ))}
         

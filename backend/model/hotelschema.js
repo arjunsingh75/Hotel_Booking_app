@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const hotelSchema = new mongoose.Schema({
+  userid: { type:String, required: true },
   name: {
     type: String,
     required: true,
@@ -16,7 +17,6 @@ const hotelSchema = new mongoose.Schema({
   img: {
     type:[String], // Array of image URLs
     required: true,
-    default:"https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   rooms: [
     {

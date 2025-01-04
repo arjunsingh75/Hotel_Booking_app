@@ -6,6 +6,7 @@ const hotelbooking=require( './routes/hotelBooking')
 const bodyparser = require('body-parser');
 require('./conn/db');
 const cors = require('cors');
+require('dotenv').config();
 
 
 // // Middleware
@@ -14,13 +15,14 @@ app.use(bodyparser.json());
 
 // Routes
 app.use('/api/hotelsdata', hotelsRoute);
-app.use('/api/Register', Register);
+app.use('/api/register', Register);
 app.use('/api/hotelbooking',hotelbooking);
 
 
 
 // Server
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+port=process.env.PORT;
+app.listen(port, () => {
+    console.log("Server is listening ");
 });
 

@@ -3,15 +3,16 @@ const express=require('express');
 const router=express.Router();
 const booking=require('../model/Bookingshema');
 const jwt=require('jsonwebtoken');
+require('dotenv').config();
 
-const JWT_SECRET = 'your_jwt_secret';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 //check authorization
 const authenticate = (req, res, next) => {
    const token = req.header('Authorization');
     if (!token) return res.status(401).send('Access Denied');
     try {
-      const verified = jwt.verify(token, 'your_jwt_secret');
+      const verified = jwt.verify(token, JWT_SECRET);
       req.user = {
         id: verified.id || verified.user?.id,
        };

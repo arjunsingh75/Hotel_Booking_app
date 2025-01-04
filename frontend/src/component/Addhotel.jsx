@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Addhotel.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+
 const Addhotel = () => {
   const navigate=useNavigate();
   const [resortData, setResortData] = useState({
@@ -53,7 +53,13 @@ const Addhotel = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
        try{
-        await axios.post("http://localhost:3000/api/hotelsdata",resortData);
+        const token = localStorage.getItem('authToken');
+        await axios.post(`${import.meta.env.VITE_APP_API_URL}/hotelsdata`,resortData,{
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `${token}`,
+          },
+        });
         alert("hotel added");
         navigate('/');
        }
@@ -63,7 +69,7 @@ const Addhotel = () => {
   };
   
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{boxShadow:'2px 5px 5px gray'}}>
       <form onSubmit={handleSubmit} className="form_data">
         <h2 className="text-center mb-4">Add Hotel</h2>
 

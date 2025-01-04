@@ -18,7 +18,7 @@ const RegisterPage = () => {
     e.preventDefault();
     
       try{
-        const response = await axios.post("http://localhost:3000/api/register",formData,{
+        const response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/register`,formData,{
           headers: {
             "Content-Type": "application/json",
           },
