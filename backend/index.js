@@ -14,6 +14,9 @@ app.use(cors());
 app.use(bodyparser.json()); 
 
 // Routes
+app.get('/',(req,res)=>{
+    res.send("hello");
+})
 app.use('/hotelsdata', hotelsRoute);
 app.use('/register', Register);
 app.use('/hotelbooking',hotelbooking);
