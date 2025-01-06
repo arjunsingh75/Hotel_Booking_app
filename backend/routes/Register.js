@@ -2,7 +2,7 @@ const express=require('express');
 const app=express();
 const mongoose=require('mongoose');
 const router=express.Router();
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const Register=require('../model/Registershema');
 require('dotenv').config();
@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
         return res.status(409).json({ message: "Email already registered." });
      }
     // Create and save the new user
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
+        const hashedPassword = await bcryptjs.hash(password, 10); // Hash the password
         const userRegister = new Register({ username, password: hashedPassword, email });
         await userRegister.save();
         res.status(201).json({ message: "User registered successfully!" });
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
       if (!user) 
         return res.status(404).json({ message: 'User not found' });
 
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await bcryptjs.compare(password, user.password);
       if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
       const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '15d' });
