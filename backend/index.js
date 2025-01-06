@@ -17,9 +17,9 @@ app.use(bodyparser.json());
 app.get('/',(req,res)=>{
     res.send("hello");
 })
-app.use('/hotelsdata', hotelsRoute);
-app.use('/register', Register);
-app.use('/hotelbooking',hotelbooking);
+app.use('/api/hotelsdata', hotelsRoute);
+app.use('/api/register', Register);
+app.use('/api/hotelbooking',hotelbooking);
 
 
 
